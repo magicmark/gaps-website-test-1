@@ -18,8 +18,8 @@ gauge public interest, but doing so is not necessary.
 1. Clone the repository and create a folder in the root called `GAP-0`.
 2. Add the required files to this folder as described below (`README.md`,
    `DRAFT.md` and `metadata.yml`), commit them, and open a pull request (PR).
-3. Update the GAP number to match the PR number (`graphql/gaps#13` has PR number
-   13). Do not zero-pad the PR number.
+3. Update the GAP number to match the PR number (`graphql/gaps#10` has PR number
+   10). Do not zero-pad the PR number.
    - Rename the folder from `GAP-0` to `GAP-N` where N is the PR number number.
    - Update `id` in `metadata.yml` to be the PR number.
    - If not yet configured, update the `discussion` path in `metadata.yml` to
