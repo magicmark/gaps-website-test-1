@@ -3,6 +3,19 @@
 Thanks for your interest in contributing! GAPs are community-driven proposals
 that address issues outside the core GraphQL specifications.
 
+## Roles
+
+- **Editor** — a person with write access to this repository
+  ([@graphql/gaps-editors](https://github.com/orgs/graphql/teams/gaps-editors)),
+  approved by the TSC to administer the GAP program. _Editors_ configure
+  `CODEOWNERS` and merge PRs.
+- **Sponsor** — an _editor_ assigned to a GAP who is responsible for approving
+  the initial contents. A _sponsor_ may also be an _author_.
+- **Author** — a person (or people) who have made significant contributions to a
+  GAP, listed in the `authors` field of `metadata.yml`. _Authors_ are given
+  commit access via `CODEOWNERS` to merge their own and others' submissions to
+  the GAP.
+
 ## GAP Numbering
 
 Each GAP is numbered after the GitHub Pull Request (PR) that introduces it. For
@@ -26,8 +39,8 @@ gauge public interest, but doing so is not necessary.
      point to the PR.
 4. Ping `@graphql/gaps-editors` to find a sponsor, add them to `metadata.yml`.
 
-Once approved by the authors and sponsor, `CODEOWNERS` will be updated and the
-PR will be merged.
+Once approved by the _authors_ and _sponsor_, `CODEOWNERS` will be updated and
+the PR will be merged.
 
 > [!IMPORTANT]
 > GAP numbers never change. If a proposal needs significant changes, create a
@@ -80,9 +93,9 @@ GAPs may be maintained over time. Major changes to a GAP are discouraged,
 instead a new GAP should be created, however evolution of a GAP over time is
 often desired.
 
-The sponsor of a GAP is responsible for ensuring changes to the GAP are
-approved by the authors before merging, though this task may also be performed
-by the TSC. The authors are responsible for guiding contribution to the GAP.
+The _sponsor_ of a GAP is responsible for ensuring changes to the GAP are
+approved by the _authors_ before merging, though this task may also be performed
+by the TSC. The _authors_ are responsible for guiding contribution to the GAP.
 
 ### Versioning
 
@@ -107,8 +120,11 @@ status of a published release, including a top-of-document notice or errata.
 
 ## Commit access
 
-Commit access is granted to this repo to the GAP editors and to members of the
+Commit access is granted to this repo to _editors_
+([@graphql/gaps-editors](https://github.com/orgs/graphql/teams/gaps-editors)),
+and to members of the
 [GraphQL TSC](https://github.com/graphql/graphql-wg/blob/main/GraphQL-TSC.md).
+
 To request to become a GAP editor, please reach out to a TSC member.
 
 ## GraphQL Specification Membership Agreement
