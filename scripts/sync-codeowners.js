@@ -27,16 +27,7 @@ async function main() {
     }),
   );
 
-  const content = lines.join("\n") + "\n";
-
-  const existing = await readFile(join(rootDir, "CODEOWNERS"), "utf8");
-  if (existing === content) {
-    console.log("CODEOWNERS is up to date.");
-    process.exit(0);
-  }
-
-  await writeFile(join(rootDir, "CODEOWNERS"), content);
-  console.log("CODEOWNERS updated.");
+  await writeFile(join(rootDir, "CODEOWNERS"), lines.join("\n") + "\n");
 }
 
 main();
