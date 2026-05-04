@@ -11,12 +11,7 @@ const gapsDir = join(rootDir, "gaps");
 
 function getGapDirs() {
   return readdirSync(gapsDir, { withFileTypes: true })
-    .filter((d) => d.isDirectory() && /^GAP-[1-9]\d*$/.test(d.name))
-    .sort((a, b) => {
-      const numA = parseInt(a.name.slice(4), 10);
-      const numB = parseInt(b.name.slice(4), 10);
-      return numA - numB;
-    });
+    .filter((d) => d.isDirectory() && /^GAP-[1-9]\d*$/.test(d.name));
 }
 
 function main() {
