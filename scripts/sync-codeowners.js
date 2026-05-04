@@ -29,7 +29,7 @@ function main() {
   const content = lines.length > 0 ? lines.join("\n") + "\n" : "";
   const codeownersPath = join(rootDir, "CODEOWNERS");
 
-  const existing = readFileSync(codeownersPath, "utf8").toString();
+  const existing = readFileSync(codeownersPath, "utf8");
   if (existing === content) {
     console.log("CODEOWNERS is up to date.");
     process.exit(0);
