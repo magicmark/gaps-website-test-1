@@ -39,8 +39,8 @@ gauge public interest, but doing so is not necessary.
      point to the PR.
 4. Ping `@graphql/gaps-editors` to find a sponsor, add them to `metadata.yml`.
 
-Once approved by the _authors_ and _sponsor_, the PR may be merged by either
-an _author_ or the _sponsor_.
+Once approved by the _authors_ and _sponsor_, the PR should be merged by the
+sponsor.
 
 `CODEOWNERS` will automatically be updated allowing _authors_ to merge future
 contributions to their GAP.
