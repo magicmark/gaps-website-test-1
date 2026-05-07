@@ -28,6 +28,6 @@ Each proposal lives in its own `GAP-N` folder and must include:
 - `DRAFT.md` — the working document of the proposal/specification
 - `README.md` — a brief overview and status, including challenges/drawbacks and
   related resources or prior art
-- `metadata.yml` — authorship, sponsorship, status, and related metadata
+- `metadata.yml` — summary, authorship, sponsorship, status, and related metadata
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md) for the full GAP process.

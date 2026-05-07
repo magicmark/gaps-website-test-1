@@ -67,6 +67,7 @@ Required fields:
 ```yml
 id: <the PR number, or 0 if not yet known>
 title: <title>
+summary: <one sentence plain-text summary>
 # GAPs are never "strawman". Later we'll probably add additional statuses. If in
 # doubt, choose "proposal"
 status: proposal | draft | accepted
@@ -79,6 +80,9 @@ sponsor: "@githubUsername"
 # of this GAP occurs. Otherwise, this can be set to the URL of the PR in which
 # the GAP was submitted.
 discussion: "https://github.com/graphql/graphql-wg/issues/..."
+summary: >
+  A short summary (one or two sentences) of the GAP. Will be displayed on the
+  GAPs directory website.
 ```
 
 Additional optional fields:

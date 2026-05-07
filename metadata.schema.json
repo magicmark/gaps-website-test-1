@@ -5,6 +5,7 @@
   "type": "object",
   "properties": {
     "title": { "type": "string" },
+    "summary": { "type": "string" },
     "status": { "type": "string", "enum": ["proposal", "draft", "accepted"] },
     "authors": {
       "type": "array",
@@ -27,6 +28,14 @@
     "supersededBy": { "type": "integer" },
     "tags": { "type": "array", "items": { "type": "string" } }
   },
-  "required": ["id", "title", "status", "authors", "sponsor", "discussion"],
+  "required": [
+    "id",
+    "title",
+    "summary",
+    "status",
+    "authors",
+    "sponsor",
+    "discussion"
+  ],
   "additionalProperties": false
 }
