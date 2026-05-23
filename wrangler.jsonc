@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "gaps",
+  "name": "gaps-website-test-1",
   "compatibility_date": "2026-05-23",
   "assets": {
     "directory": "./_site"
