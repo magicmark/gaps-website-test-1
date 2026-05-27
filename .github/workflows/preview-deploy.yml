@@ -53,7 +53,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy _site --project-name=gaps --branch=pr-${{ steps.pr.outputs.number }}
+          command: pages deploy _site --project-name=gaps-website-test-1 --branch=pr-${{ steps.pr.outputs.number }}
 
       - name: Comment on PR with deploy preview URL
         if: steps.deploy.outcome == 'success'
@@ -65,7 +65,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: prNumber,
-              body: `🚀 Deploy preview ready: https://pr-${prNumber}.gaps.pages.dev`
+              body: `🚀 Deploy preview ready: https://pr-${prNumber}.gaps-website-test-1.pages.dev`
             });
 
       - name: Comment on PR if secrets not configured
