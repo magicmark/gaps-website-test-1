@@ -36,9 +36,9 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          PR_NUM=$(gh pr view --repo "${{ github.repository }}" \
-            "${{ github.event.workflow_run.head_repository.owner.login }}:${{ github.event.workflow_run.head_branch }}" \
-            --json number --jq '.number')
+          PR_NUM=$(gh pr list --repo "${{ github.repository }}" \
+            --head "${{ github.event.workflow_run.head_branch }}" \
+            --json number --jq '.[0].number')
           if ! [[ "$PR_NUM" =~ ^[0-9]+$ ]]; then
             echo "::error::Could not determine PR number"
             exit 1
