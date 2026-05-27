@@ -65,7 +65,7 @@ jobs:
             });
             await Promise.all(
               comments
-                .filter(c => c.body.startsWith('🚀 Deploy preview:'))
+                .filter(c => c.body.includes('<!-- deploy-preview -->'))
                 .map(c => github.graphql(`
                   mutation($id: ID!) {
                     minimizeComment(input: { subjectId: $id, classifier: OUTDATED }) {
@@ -84,13 +84,11 @@ jobs:
               repo: context.repo.repo,
               issue_number: ${{ steps.pr.outputs.number }},
               body: [
-                '🚀 **Deploy Preview**',
+                '<!-- deploy-preview -->',
+                '### 🚀 Deploy Preview',
                 '',
-                '**This commit:**',
-                '${{ steps.deploy.outputs.deployment-url }}',
-                '',
-                '**Latest for this PR** (always up to date):',
-                '${{ steps.alias.outputs.url }}'
+                '- **This commit:** ${{ steps.deploy.outputs.deployment-url }}',
+                '- **This PR** <sub>(kept up to date)</sub>: ${{ steps.alias.outputs.url }}'
               ].join('\n')
             });
 
