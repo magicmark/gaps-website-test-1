@@ -173,3 +173,4 @@ You can find
 [detailed information here](https://github.com/graphql/graphql-wg/tree/main/membership).
 If you have issues, please email
 [operations@graphql.org](mailto:operations@graphql.org).
+
