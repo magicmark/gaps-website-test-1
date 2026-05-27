@@ -34,14 +34,10 @@ jobs:
       - name: Read PR number
         id: pr
         run: |
-          if [ ! -f _site/pr-number ]; then
-            echo "::error::pr-number file not found in artifact"
-            exit 1
-          fi
-          PR_NUM=$(cat _site/pr-number)
+          PR_NUM=$(cat _site/pr-number 2>/dev/null)
           # Guard against injection — this value flows into API calls and shell commands
           if ! [[ "$PR_NUM" =~ ^[0-9]+$ ]]; then
-            echo "::error::pr-number contains non-numeric content: $PR_NUM"
+            echo "::error::Invalid or missing pr-number: '$PR_NUM'"
             exit 1
           fi
           echo "number=$PR_NUM" >> "$GITHUB_OUTPUT"
