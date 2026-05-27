@@ -1,0 +1,22 @@
+name: Cleanup Preview
+
+on:
+  pull_request:
+    branches: [main]
+    types: [closed]
+
+permissions:
+  contents: read
+
+jobs:
+  cleanup:
+    name: Delete Cloudflare preview
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Delete preview deployment
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: versions delete --preview-alias "pr-${{ github.event.pull_request.number }}" --yes
