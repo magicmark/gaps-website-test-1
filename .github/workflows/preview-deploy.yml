@@ -39,22 +39,6 @@ jobs:
             exit 1
           fi
 
-      - name: Comment deploy preview pending
-        uses: actions/github-script@v7
-        with:
-          script: |
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: ${{ steps.pr.outputs.number }},
-              body: [
-                '<!-- deploy-preview -->',
-                '### ⏳ Deploy Preview',
-                '',
-                'Building and deploying preview...'
-              ].join('\n')
-            });
-
       - name: Deploy preview to Cloudflare Workers
         id: deploy
         uses: cloudflare/wrangler-action@v4
