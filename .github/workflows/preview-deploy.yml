@@ -31,11 +31,20 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path: _site
 
-      - name: Find PR number
+      - name: Read PR number
         id: pr
-        uses: jwalton/gh-find-current-pr@f3d61b485d2801773f7a07b2aaa3306bd8f8e653 # v1.3.5
-        with:
-          sha: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          if [ ! -f _site/pr-number ]; then
+            echo "::error::pr-number file not found in artifact"
+            exit 1
+          fi
+          PR_NUM=$(cat _site/pr-number)
+          # Guard against injection — this value flows into API calls and shell commands
+          if ! [[ "$PR_NUM" =~ ^[0-9]+$ ]]; then
+            echo "::error::pr-number contains non-numeric content: $PR_NUM"
+            exit 1
+          fi
+          echo "number=$PR_NUM" >> "$GITHUB_OUTPUT"
 
       - name: Deploy preview to Cloudflare Workers
         id: deploy
