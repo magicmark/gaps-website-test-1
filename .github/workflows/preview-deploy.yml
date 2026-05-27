@@ -75,16 +75,11 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const url = '${{ steps.deploy.outputs.deployment-url }}';
-            if (!url) {
-              core.setFailed('deployment-url output is empty');
-              return;
-            }
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: ${{ steps.pr.outputs.number }},
-              body: '🚀 Deploy preview: ' + url
+              body: '🚀 Deploy preview: ${{ steps.deploy.outputs.deployment-url }}'
             });
 
       - name: Comment on PR (failure)
