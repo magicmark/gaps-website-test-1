@@ -38,4 +38,4 @@ jobs:
           name: preview-build
           path: _site
           include-hidden-files: true
-          retention-days: 1
+          retention-days: 3
