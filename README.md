@@ -21,6 +21,8 @@ Each GAP is numbered after the GitHub Pull Request that introduces it. For
 example, if the PR that adds a GAP is `graphql/gaps#10`, the proposal becomes
 **GAP-10**.
 
+_(test non-fork PR for deploy preview validation)_
+
 ## Repository structure
 
 Each proposal lives in its own `GAP-N` folder and must include:
