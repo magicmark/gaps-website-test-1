@@ -77,7 +77,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: ${{ steps.pr.outputs.number }},
-              body: '🚀 Deploy preview: ${{ steps.deploy.outputs.pages-deployment-alias-url }}\n\nVersion URL: ${{ steps.deploy.outputs.deployment-url }}'
+              body: `🚀 **Deploy Preview**\n\n**This commit:**\n${{ steps.deploy.outputs.deployment-url }}\n\n**Latest for this PR** (always up to date):\n${{ steps.deploy.outputs.pages-deployment-alias-url }}`
             });
 
       - name: Comment on PR (failure)
