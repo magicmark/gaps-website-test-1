@@ -64,13 +64,6 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: versions upload --preview-alias "pr-${{ steps.pr.outputs.number }}" --message "PR #${{ steps.pr.outputs.number }} preview"
 
-      # TODO: remove once wrangler-action exposes alias URL as an output for `versions upload`
-      - name: Extract alias URL
-        id: alias
-        env:
-          WRANGLER_OUTPUT: ${{ steps.deploy.outputs.command-output }}
-        run: echo "url=$(echo "$WRANGLER_OUTPUT" | grep -oP 'Version Preview Alias URL: \K\S+')" >> "$GITHUB_OUTPUT"
-
       - name: Hide old deploy preview comments
         uses: actions/github-script@v7
         with:
@@ -105,7 +98,7 @@ jobs:
                 '### 🚀 Deploy Preview',
                 '',
                 '- **This commit:** ${{ steps.deploy.outputs.deployment-url }}',
-                '- **This PR** <sub>(kept up to date)</sub>: ${{ steps.alias.outputs.url }}'
+                '- **This PR** <sub>(kept up to date)</sub>: https://pr-${{ steps.pr.outputs.number }}-gaps-website-test-1.markl.workers.dev'
               ].join('\n')
             });
 
