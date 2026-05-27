@@ -61,12 +61,13 @@ jobs:
             });
             for (const comment of comments) {
               if (comment.body.startsWith('🚀 Deploy preview:')) {
-                await github.rest.issues.updateComment({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  comment_id: comment.id,
-                  body: '<details><summary>Previous deploy preview (superseded)</summary>\n\n' + comment.body + '\n</details>'
-                });
+                await github.graphql(`
+                  mutation($id: ID!) {
+                    minimizeComment(input: { subjectId: $id, classifier: OUTDATED }) {
+                      minimizedComment { isMinimized }
+                    }
+                  }
+                `, { id: comment.node_id });
               }
             }
 
