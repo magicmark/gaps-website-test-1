@@ -35,9 +35,9 @@ jobs:
         id: pr
         run: |
           PR_NUM=$(cat _site/pr-number 2>/dev/null)
-          # Guard against injection — this value flows into API calls and shell commands
+          # Guard against injection (this value flows into API calls and shell commands)
           if ! [[ "$PR_NUM" =~ ^[0-9]+$ ]]; then
-            echo "::error::Invalid or missing pr-number: '$PR_NUM'"
+            echo "::error::Invalid or missing .pr-number from artifact"
             exit 1
           fi
           echo "number=$PR_NUM" >> "$GITHUB_OUTPUT"
