@@ -23,6 +23,7 @@ jobs:
           ref: main
           sparse-checkout: |
             wrangler.jsonc
+            .github/scripts
 
       # Security: actions/download-artifact handles zip extraction safely
       # (immune to zip-slip), and the artifact only contains static HTML/CSS/JS
