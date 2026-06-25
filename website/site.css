@@ -1,3 +1,14 @@
+/* TEST: Fork PR hello world */
+body::before {
+  content: "HELLO WORLD - FORK TEST (robo-magicmark)";
+  display: block;
+  background: #4ecdc4;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+
 :root {
   --bg: #f6f4ee;
   --ink: #171717;
