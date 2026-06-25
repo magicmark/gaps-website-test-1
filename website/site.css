@@ -1,3 +1,14 @@
+/* TEST: Non-fork PR hello world */
+body::before {
+  content: "HELLO WORLD - NON-FORK TEST";
+  display: block;
+  background: #ff6b6b;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+
 :root {
   --bg: #f6f4ee;
   --ink: #171717;
